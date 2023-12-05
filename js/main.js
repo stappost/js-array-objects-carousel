@@ -30,11 +30,14 @@ const title = document.querySelector("h2");
 const text = document.querySelector("h5");
 // variabile contatore 
 let i=0; 
+// funzione per cambio immagini 
 function changeImg(i){
     img.src = images[i].image
     title.innerText = images[i].title
     text.innerText = images[i].text
 }
+
+// pulsante next 
 btn_next.addEventListener("click", () =>{
      if(i<images.length-1){
         i++ 
@@ -46,7 +49,7 @@ btn_next.addEventListener("click", () =>{
     }
 })
 
-
+// pulsante prev 
 btn_prev.addEventListener("click", () =>{
     if(i>0){
        i--
