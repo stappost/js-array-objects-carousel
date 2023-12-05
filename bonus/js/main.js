@@ -38,29 +38,39 @@ let imagin;
 let i=0; 
 // funzione per cambio immagini 
 function changeImg(i){
+    
     img.src = images[i].image
     title.innerText = images[i].title
     text.innerText = images[i].text
+    
+    
+    let carosel_img = document.getElementById(i);
+    carosel_img.className ="layout"
+    
+    console.log(carosel_img)
 }
 
 
 let count = 0;
-// images.forEach((elem) => {
-//     imagin = document.createElement("img");
-//     imagin.setAttribute("id", count)
-//     imagin.src = elem.image;
-//     carousel.appendChild(imagin);
-//     count++;
-// });
+images.forEach((elem) => {
+    imagin = document.createElement("img");
+    imagin.setAttribute("id", count)
+    imagin.src = elem.image;
+    carousel.appendChild(imagin);
+    count++;
+});
 
-
+// auto carosello 
 btn_start.addEventListener("click", () =>{
     auto_carosel = setInterval(() =>{
-        if(i > images.length-1){
-            i = 0;
+
+        document.getElementById(i).className = ' '
+        if(i == images.length-1){
+            i = -1;
         }
-        changeImg(i)
         i++
+        changeImg(i)
+
     }, 1000)
 })
 btn_stop.addEventListener("click", () =>{
@@ -68,22 +78,25 @@ btn_stop.addEventListener("click", () =>{
 })
 btn_invert.addEventListener("click", () =>{
     auto_carosel = setInterval(() =>{
-        if(i < 0){
-            i = images.length - 1;;
+        
+        document.getElementById(i).className = ' '
+        if(i == 0){
+            i = images.length;;
         }
-        changeImg(i)
         i--
+        changeImg(i)
+
     }, 1000)
 })
 
 
+  
+
 // pulsante next 
 btn_next.addEventListener("click", () =>{
-    
-    // let carosel_img = document.getElementById[i];
-    // carosel_img.innerHTML += "class='layout"
-    
-    
+
+    document.getElementById(i).className = ' '
+
      if(i<images.length-1){
         i++ 
         changeImg(i)
@@ -96,6 +109,9 @@ btn_next.addEventListener("click", () =>{
 
 // pulsante prev 
 btn_prev.addEventListener("click", () =>{
+
+    document.getElementById(i).className = ' '
+
     if(i>0){
        i--
        changeImg(i)   
@@ -105,4 +121,7 @@ btn_prev.addEventListener("click", () =>{
        changeImg(i)
    }
 })
+
+
+
 
