@@ -25,9 +25,13 @@ const images = [
 // recupero elementi in index 
 const btn_prev = document.querySelector(".prev"); 
 const btn_next = document.querySelector(".next"); 
+const btn_start = document.getElementById("avvia");
+const btn_stop = document.getElementById("ferma");
 const img = document.querySelector("img");
 const title = document.querySelector("h2");
 const text = document.querySelector("h5");
+const carousel = document.querySelector(".carousel")
+let imagin;
 // variabile contatore 
 let i=0; 
 // funzione per cambio immagini 
@@ -37,8 +41,38 @@ function changeImg(i){
     text.innerText = images[i].text
 }
 
+
+let count = 0;
+// images.forEach((elem) => {
+//     imagin = document.createElement("img");
+//     imagin.setAttribute("id", count)
+//     imagin.src = elem.image;
+//     carousel.appendChild(imagin);
+//     count++;
+// });
+
+
+btn_start.addEventListener("click", () =>{
+    auto_carosel = setInterval(() =>{
+        if(i > images.length-1){
+            i = 0;
+        }
+        changeImg(i)
+        i++
+    }, 1000)
+})
+btn_stop.addEventListener("click", () =>{
+    clearInterval(auto_carosel)
+})
+
+
 // pulsante next 
 btn_next.addEventListener("click", () =>{
+    
+    // let carosel_img = document.getElementById[i];
+    // carosel_img.innerHTML += "class='layout"
+    
+    
      if(i<images.length-1){
         i++ 
         changeImg(i)
@@ -53,11 +87,11 @@ btn_next.addEventListener("click", () =>{
 btn_prev.addEventListener("click", () =>{
     if(i>0){
        i--
-       changeImg(i)
-       
+       changeImg(i)   
    } 
    else{
        i =images.length - 1
        changeImg(i)
    }
 })
+
