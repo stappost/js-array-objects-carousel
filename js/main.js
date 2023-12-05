@@ -30,20 +30,19 @@ const title = document.querySelector("h2");
 const text = document.querySelector("h5");
 // variabile contatore 
 let i=0; 
-
+function changeImg(i){
+    img.src = images[i].image
+    title.innerText = images[i].title
+    text.innerText = images[i].text
+}
 btn_next.addEventListener("click", () =>{
      if(i<images.length-1){
         i++ 
-        img.src = images[i].image
-        title.innerText = images[i].title
-        text.innerText = images[i].text
+        changeImg(i)
     } 
     else{
         i = 0
-        img.src = images[i].image
-        title.innerText = images[i].title
-        text.innerText = images[i].text
-        console.log(images[i])
+        changeImg(i)
     }
 })
 
@@ -51,16 +50,11 @@ btn_next.addEventListener("click", () =>{
 btn_prev.addEventListener("click", () =>{
     if(i>0){
        i--
-       img.src = images[i].image
-       title.innerText = images[i].title
-       text.innerText = images[i].text
+       changeImg(i)
        
    } 
    else{
        i =images.length - 1
-       img.src = images[i].image
-       title.innerText = images[i].title
-       text.innerText = images[i].text
-
+       changeImg(i)
    }
 })
