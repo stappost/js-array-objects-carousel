@@ -32,16 +32,35 @@ const text = document.querySelector("h5");
 let i=0; 
 
 btn_next.addEventListener("click", () =>{
+     if(i<images.length-1){
         i++ 
         img.src = images[i].image
         title.innerText = images[i].title
         text.innerText = images[i].text
+    } 
+    else{
+        i = 0
+        img.src = images[i].image
+        title.innerText = images[i].title
+        text.innerText = images[i].text
+        console.log(images[i])
+    }
 })
 
 
 btn_prev.addEventListener("click", () =>{
+    if(i>0){
        i--
        img.src = images[i].image
        title.innerText = images[i].title
-       text.innerText = images[i].text 
+       text.innerText = images[i].text
+       
+   } 
+   else{
+       i =images.length - 1
+       img.src = images[i].image
+       title.innerText = images[i].title
+       text.innerText = images[i].text
+
+   }
 })
