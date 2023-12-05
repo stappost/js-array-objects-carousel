@@ -15,9 +15,12 @@ Bonus 2: E se volessi un bottone per invertire la "direzione" del carosello?
 Buon lavoro  :faccia_leggermente_sorridente:
  
 scaffolding
+
 1- recupero elementi index;
 2- aggingere variabile contatore;
 3- al click del pulsante next impostare immagine successiva e testo successivo;
 4- al click del pulsante prev impostare immagine precedente e testo precendente;
+
 milestone 2
-5 - se contatore = array.length -1 il contatore torna a 0
+
+5 - se contatore = array.length -1 il contatore torna a 0;
