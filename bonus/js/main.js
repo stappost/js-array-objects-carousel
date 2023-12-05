@@ -27,6 +27,8 @@ const btn_prev = document.querySelector(".prev");
 const btn_next = document.querySelector(".next"); 
 const btn_start = document.getElementById("avvia");
 const btn_stop = document.getElementById("ferma");
+const btn_invert = document.getElementById("inverti");
+
 const img = document.querySelector("img");
 const title = document.querySelector("h2");
 const text = document.querySelector("h5");
@@ -63,6 +65,15 @@ btn_start.addEventListener("click", () =>{
 })
 btn_stop.addEventListener("click", () =>{
     clearInterval(auto_carosel)
+})
+btn_invert.addEventListener("click", () =>{
+    auto_carosel = setInterval(() =>{
+        if(i < 0){
+            i = images.length - 1;;
+        }
+        changeImg(i)
+        i--
+    }, 1000)
 })
 
 
