@@ -125,5 +125,10 @@ btn_prev.addEventListener("click", () =>{
 })
 
 
-
-
+// PERMETTIAMO DI CLICCARE SULLE IMMAGINI E DI SELEZIONARLE COME PRINCIPALE 
+let img_click = document.querySelectorAll("img");
+for(let i = 0; i<img_click.length; i++){
+    img_click[i].addEventListener("click", () =>{
+        img.src = img_click[i].src
+    })
+}
