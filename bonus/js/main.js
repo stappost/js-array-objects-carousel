@@ -64,21 +64,23 @@ images.forEach((elem) => {
 btn_start.addEventListener("click", () =>{
     auto_carosel = setInterval(() =>{
 
+        btn_start.disabled = true
         document.getElementById(i).className = ' '
         if(i == images.length-1){
             i = -1;
         }
         i++
         changeImg(i)
-
     }, 1000)
 })
 btn_stop.addEventListener("click", () =>{
     clearInterval(auto_carosel)
+    btn_start.disabled = false
+    btn_invert.disabled = false
 })
 btn_invert.addEventListener("click", () =>{
     auto_carosel = setInterval(() =>{
-        
+        btn_invert.disabled = true
         document.getElementById(i).className = ' '
         if(i == 0){
             i = images.length;;
